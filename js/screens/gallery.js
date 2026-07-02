@@ -1,7 +1,6 @@
 // Collection / Gallery (§7.7): grid of past artifacts.
 
 import { state } from '../store.js';
-import { ACTIVITIES } from '../config.js';
 import { renderArtifactThumb } from '../companion.js';
 import { el, formatDuration } from '../lib/util.js';
 
@@ -25,11 +24,10 @@ export function GalleryScreen() {
         return;
       }
       const cells = arts.map((a) => {
-        const cfg = ACTIVITIES[a.type] || {};
         const date = new Date(a.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
         return `<figure class="thumb-card card">
           <div class="thumb">${renderArtifactThumb(a.type, a.seed)}</div>
-          <figcaption><span>${cfg.emoji || ''} ${date}</span><small class="muted">${formatDuration(a.durationMs || 0)}</small></figcaption>
+          <figcaption><span>${date}</span><small class="muted">${formatDuration(a.durationMs || 0)}</small></figcaption>
         </figure>`;
       }).join('');
       rootEl.innerHTML = `

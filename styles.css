@@ -27,6 +27,7 @@ html[data-theme='dark'] {
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; } /* keep the attr authoritative over display rules */
 html, body { height: 100%; margin: 0; }
 body {
   font-family: 'Nunito', system-ui, -apple-system, sans-serif;
@@ -196,7 +197,9 @@ h1 { font-size: 1.5rem; font-weight: 800; margin: 0; }
 .thumb-card { padding: 10px; display: flex; flex-direction: column; gap: 8px; }
 .thumb { width: 100%; aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; background: var(--bg); }
 .thumb-svg { width: 100%; height: 100%; display: block; }
-.thumb-card figcaption { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 0.85rem; }
+.thumb-card figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; font-weight: 700; font-size: 0.82rem; }
+.thumb-card figcaption span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.thumb-card figcaption small { white-space: nowrap; flex: none; }
 .empty { text-align: center; padding: 40px 20px; }
 .empty-emoji { font-size: 2.4rem; }
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; }
